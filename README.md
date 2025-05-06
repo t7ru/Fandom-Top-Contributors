@@ -6,7 +6,7 @@ Using GitHub Actions is recommended.
 
 ## Environment Variables
 
-To run this project, you need to set up the following environment/secret variables. You can create a `.env` file in the root of your project for local development.
+To run this project, you need to set up the following environment/secret variables. You can create a `.env` file in the root of your project for local development, or you can hardcode it in the `config.ts` file.
 
 ```
 WEBHOOK_URL=your_discord_webhook_url
