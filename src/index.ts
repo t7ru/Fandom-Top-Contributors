@@ -42,7 +42,7 @@ async function main() {
                 footer: {
                     text: formattedDateString
                 },
-                color: parseInt(EMBED_COLOR),
+                color: EMBED_COLOR,
             };
             
             // Filter out thumbnail if URL is undefined
