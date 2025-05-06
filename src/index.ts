@@ -26,11 +26,13 @@ async function main() {
             const formattedDateString = `Week ending ${day}/${month}/${year}`;
 
             const embed = {
-                title: `Top ${topContributors.length} Contributors This Week`,
+                title: `Top ${topContributors.length} Contributors`,
+                url: "https://github.com/Paradoxum-Wikis/Fandom-Top-Contributors",
                 fields: topContributors.map((c: Contributor, i: number) => {
                     const profileUrl = `https://${FANDOM_SUBDOMAIN}.fandom.com${c.profileUrl}`;
+                    const displayName = c.isAdmin ? `${c.userName} :star2:` : c.userName;
                     return {
-                        name: `${i + 1}. ${c.userName}`,
+                        name: `${i + 1}. ${displayName}`,
                         value: `Contributions: ${c.contributions}\n[Profile](${profileUrl})`,
                         inline: false,
                     };
