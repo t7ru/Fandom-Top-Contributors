@@ -1,0 +1,23 @@
+name: Weekly Discord Webhook
+
+on:
+  schedule:
+    - cron: '0 14 * * 0'  # Every Sunday at 14:00 UTC
+
+jobs:
+  sendWebhook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run DarkGabonnie
+        run: npm run start
