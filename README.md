@@ -1,10 +1,12 @@
-# Discord Webhook Bot
+# Fandom Top Contributors Webhook
 
 This project is a Discord webhook 'bot' that fetches contributor data from a Fandom wiki and posts a summary to a Discord channel every week. The bot is designed to be run via a scheduler like GitHub Actions.
 
+Using GitHub Actions is recommended.
+
 ## Environment Variables
 
-To run this project, you need to set up the following environment variables. You can create a `.env` file in the root of your project for local development.
+To run this project, you need to set up the following environment/secret variables. You can create a `.env` file in the root of your project for local development.
 
 ```
 WEBHOOK_URL=your_discord_webhook_url
@@ -13,7 +15,16 @@ EMBED_COLOR=your_hexadecimal_color
 TOP_N_CONTRIBUTORS=your_number_lol
 ```
 
--   `WEBHOOK_URL`: (Required) The Discord webhook URL to send messages to.
--   `FANDOM_SUBDOMAIN`: The subdomain of the Fandom wiki to fetch data from (e.g., `tds` for `tds.fandom.com`). Defaults to `tds` if not set.
--   `EMBED_COLOR`: The hexadecimal color code that shows up on the left of the Discord embed. Defaults to `0x0099FF` (cyanish blue) if not set.
--   `TOP_N_CONTRIBUTORS`: The number of top contributors to display in the list. Defaults to `5` if not set. The theoretical maximum that could be displayed is `29`, however, it is likely around `25` due to limitations.
+-   `WEBHOOK_URL`: (SECRET) The Discord webhook URL to send messages to.
+-   `FANDOM_SUBDOMAIN`: (VAR) The subdomain of the Fandom wiki to fetch data from (e.g., `tds` for `tds.fandom.com`). Defaults to `tds` if not set.
+-   `EMBED_COLOR`: (VAR) The hexadecimal color code that shows up on the left of the Discord embed. Defaults to `0x0099FF` (cyanish blue) if not set.
+-   `TOP_N_CONTRIBUTORS`:  (VAR) The number of top contributors to display in the list. The theoretical maximum that could be displayed is `29`, however, it is likely around `25` due to limitations. Defaults to `5` if not set.
+
+## Setup
+1. Fork or clone the template using the "Use this template" button
+2. Create your repository and stuff
+3. Head into the repo's settings and go to "Secrets and variables"
+4. Add the webhook variable into Secrets, and everything else into Variables
+5. And you're done!
+
+You may also test if it works or not by going to "Actions" and manually run "Weekly Discord Webhook". The schedule can be changed in the `schedule.yaml` file.
