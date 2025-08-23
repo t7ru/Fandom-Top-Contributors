@@ -12,7 +12,7 @@ Using GitHub Actions is recommended.
 4. Add the webhook variable into Secrets, and everything else into Variables
 5. And you're done!
 
-You may also test if it works or not by going to "Actions" and manually run "Weekly Discord Webhook". Also, the schedule can be changed in the `schedule.yaml` file, which means the bot can be run daily or biweekly if you so choose to.
+You may also test if it works or not by going to "Actions" and manually running "Weekly Discord Webhook". Also, the schedule can be changed in the `schedule.yaml` file, which means the bot can be run daily or biweekly if you so choose to. The code itself is extremely simple to understand. I've also clarified with comments about some common questions in it.
 
 ## Environment Variables
 
