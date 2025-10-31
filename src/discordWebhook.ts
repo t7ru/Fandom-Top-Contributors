@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { WEBHOOK_URL } from './config';
 
 export const sendWebhook = async (payload: any) => {
@@ -7,7 +6,14 @@ export const sendWebhook = async (payload: any) => {
         return;
     }
     try {
-        await axios.post(WEBHOOK_URL, payload);
+        const response = await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+        });
+        if (!response.ok) {
+            console.error(`Error sending webhook: ${response.status} ${response.statusText}`);
+        }
     } catch (error) {
         console.error('Error sending webhook:', error);
     }
